@@ -12,6 +12,16 @@ body {
   padding: 0px;
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+
+}
+
+a:hover {
+  color: #444;
+}
+
 
 #izquierda img {
   width: 100%;
@@ -21,7 +31,7 @@ body {
 
 #izquierda {
   flex: 1.4;
-  background: rgb(115, 145, 226);
+  background: #456C73;
   padding: 28px 20px 32px;
   display: flex;
   flex-direction: column;
@@ -41,7 +51,10 @@ body {
 }
 
 #izquierda li {
+  text-decoration: none;
+  color: whitesmoke;
   margin: 6px 0;
+
 }
 
 #izquierda article * {
@@ -90,4 +103,10 @@ body {
 #derecha li {
   letter-spacing: 1px;
   line-height: 1.6;
+}
+
+#formacion {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
 }
