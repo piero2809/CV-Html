@@ -27,6 +27,11 @@
                     <li>📍 Burjassot, Valencia</li>
                     <li><a href="https://www.linkedin.com/in/piero-funes-larios-44360a166" target="_blank"
                             class="linkedin-link">LinkedIn</a></li>
+                    <li id="item-volver" style="display: none; margin-top: 15px;">
+                        <a href="https://piero2809.github.io/Portafolio/" class="link-volver">
+                            ⬅ Volver al Portafolio
+                        </a>
+                    </li>
                 </ul>
             </section>
 
@@ -113,6 +118,18 @@
             duration: 800,
             once: true
         });
+    </script>
+    <script>
+        // 1. Leemos la URL para ver si venimos del portafolio
+        const params = new URLSearchParams(window.location.search);
+
+        // 2. Si el parámetro "origen" es "portafolio"...
+        if (params.get('origen') === 'portafolio') {
+
+            // 3. Buscamos el li oculto y lo mostramos
+            const itemVolver = document.getElementById('item-volver');
+            itemVolver.style.display = 'list-item'; // Se muestra como un elemento de lista normal
+        }
     </script>
 </body>
 
