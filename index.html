@@ -13,7 +13,9 @@
 </head>
 
 <body>
-
+    <a id="btn-volver" href="https://piero2809.github.io/Portafolio/" class="btn-volver-top" style="display: none;">
+        ⬅ Volver al Portafolio
+    </a>
     <div class="cv-container">
 
         <aside class="sidebar" data-aos="fade-right">
@@ -27,11 +29,7 @@
                     <li>📍 Burjassot, Valencia</li>
                     <li><a href="https://www.linkedin.com/in/piero-funes-larios-44360a166" target="_blank"
                             class="linkedin-link">LinkedIn</a></li>
-                    <li id="item-volver" style="display: none; margin-top: 15px;">
-                        <a href="https://piero2809.github.io/Portafolio/" class="link-volver">
-                            ⬅ Volver al Portafolio
-                        </a>
-                    </li>
+
                 </ul>
             </section>
 
@@ -120,15 +118,17 @@
         });
     </script>
     <script>
-        // 1. Leemos la URL para ver si venimos del portafolio
+        // 1. Leemos la URL actual
         const params = new URLSearchParams(window.location.search);
 
-        // 2. Si el parámetro "origen" es "portafolio"...
+        // 2. Comprobamos si trae la "etiqueta" de origen
         if (params.get('origen') === 'portafolio') {
 
-            // 3. Buscamos el li oculto y lo mostramos
-            const itemVolver = document.getElementById('item-volver');
-            itemVolver.style.display = 'list-item'; // Se muestra como un elemento de lista normal
+            // 3. Buscamos el botón por su nuevo ID "btn-volver"
+            const boton = document.getElementById('btn-volver');
+
+            // 4. Lo mostramos. Usamos 'inline-flex' para que quede centrado y bonito.
+            boton.style.display = 'inline-flex';
         }
     </script>
 </body>

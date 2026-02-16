@@ -146,20 +146,59 @@ h2 {
 
     /* Estilo para el enlace de volver en la sidebar */
     .link-volver {
-        color: var(--primary-color);
-        /* Tu azul corporativo */
+        color: var(--primary-color);  /* Tu azul corporativo */
         font-weight: bold;
         text-decoration: none;
         border: 1px solid var(--primary-color);
         padding: 5px 10px;
         border-radius: 5px;
         transition: 0.3s;
-        display: inline-block;
-        /* Para que el padding funcione bien */
+        display: inline-block;  /* Para que el padding funcione bien */
     }
 
-    .link-volver:hover {
-        background: var(--primary-color);
+    /* ESTILOS DEL BOTÓN VOLVER (FLOTANTE) */
+    .btn-volver-top {
+        /* Posición fija: Se queda pegado a la pantalla aunque bajes el scroll */
+        position: fixed;
+        top: 20px;        /* Separación desde arriba */
+        left: 20px;     /* Separación desde la izquierda (la zona natural de "atrás") */
+
+        /* Diseño visual: Usamos tus variables de color */
+        background-color: var(--primary-color);
         color: white;
+
+        /* Tamaño y forma */
+        padding: 10px 20px;
+        border-radius: 50px;  /* Bordes redondos tipo píldora */
+        text-decoration: none;  /* Sin subrayado */
+        font-weight: bold;
+        font-family: 'Inter', sans-serif;
+
+        /* Sombra y capa: Para que flote por encima de todo */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;  /* Asegura que esté siempre encima del CV */
+
+        /* Animación suave al pasar el ratón */
+        transition: transform 0.3s ease, background-color 0.3s;
+
+        /* Alineación del texto e icono */
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Efecto Hover: Qué pasa cuando pones el ratón encima */
+    .btn-volver-top:hover {
+        background-color: var(--accent);    /* Cambia a azul clarito */
+        transform: translateY(3px);     /* Un pequeño movimiento hacia abajo */
+    }
+
+    /* // AJUSTE MÓVIL: En pantallas pequeñas, lo hacemos un poco más discreto */
+    @media (max-width: 768px) {
+        .btn-volver-top {
+            top: 10px;
+            left: 10px;
+            padding: 8px 15px;
+            font-size: 0.85rem;     /* Texto un pelín más pequeño */
+        }
     }
 }
