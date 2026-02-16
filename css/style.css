@@ -156,49 +156,44 @@ h2 {
         display: inline-block;  /* Para que el padding funcione bien */
     }
 
-    /* ESTILOS DEL BOTÓN VOLVER (FLOTANTE) */
+/* // ESTILO BOTÓN VOLVER (Idéntico al botón "Ver CV" del Portafolio) */
+.btn-volver-top {
+    /* // 1. Posicionamiento: Fijo en la esquina superior izquierda */
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    z-index: 1000; /* // Para que flote por encima de todo */
+
+    /* // 2. Diseño Visual (Copiado del Portafolio) */
+    background-color: var(--primary-color); /* #2563eb */
+    color: var(--text-light); /* #f8fafc */
+    padding: 0.6rem 1.2rem; /* El mismo tamaño que el botón "Ver CV" */
+    border-radius: 8px;     /* Borde redondeado sutil, no píldora */
+    text-decoration: none;  /* Sin subrayado */
+    font-weight: 500;       /* Grosor de letra */
+    font-family: 'Inter', sans-serif;
+    
+    /* // 3. Sombra: Necesaria para que se note que está flotando sobre el fondo oscuro */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    
+    /* // 4. Animación suave */
+    transition: 0.3s ease;
+}
+
+/* // EFECTO HOVER (Al pasar el ratón) */
+.btn-volver-top:hover {
+    background-color: var(--accent); /* Se pone azul clarito (#38bdf8) */
+    transform: translateY(-2px);     /* El "saltito" hacia arriba */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.4); /* La sombra crece un poco */
+}
+
+/* // AJUSTE PARA MÓVIL (Para que no moleste en pantallas pequeñas) */
+@media (max-width: 768px) {
     .btn-volver-top {
-        /* Posición fija: Se queda pegado a la pantalla aunque bajes el scroll */
-        position: fixed;
-        top: 20px;        /* Separación desde arriba */
-        left: 20px;     /* Separación desde la izquierda (la zona natural de "atrás") */
-
-        /* Diseño visual: Usamos tus variables de color */
-        background-color: var(--primary-color);
-        color: white;
-
-        /* Tamaño y forma */
-        padding: 10px 20px;
-        border-radius: 50px;  /* Bordes redondos tipo píldora */
-        text-decoration: none;  /* Sin subrayado */
-        font-weight: bold;
-        font-family: 'Inter', sans-serif;
-
-        /* Sombra y capa: Para que flote por encima de todo */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        z-index: 1000;  /* Asegura que esté siempre encima del CV */
-
-        /* Animación suave al pasar el ratón */
-        transition: transform 0.3s ease, background-color 0.3s;
-
-        /* Alineación del texto e icono */
-        align-items: center;
-        gap: 8px;
+        top: 15px;
+        left: 15px;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
     }
-
-    /* Efecto Hover: Qué pasa cuando pones el ratón encima */
-    .btn-volver-top:hover {
-        background-color: var(--accent);    /* Cambia a azul clarito */
-        transform: translateY(3px);     /* Un pequeño movimiento hacia abajo */
-    }
-
-    /* // AJUSTE MÓVIL: En pantallas pequeñas, lo hacemos un poco más discreto */
-    @media (max-width: 768px) {
-        .btn-volver-top {
-            top: 10px;
-            left: 10px;
-            padding: 8px 15px;
-            font-size: 0.85rem;     /* Texto un pelín más pequeño */
-        }
-    }
+}
 }
