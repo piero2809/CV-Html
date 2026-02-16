@@ -143,18 +143,8 @@ h2 {
         flex-direction: column;
         text-align: center;
     }
+} 
 
-    /* Estilo para el enlace de volver en la sidebar */
-    .link-volver {
-        color: var(--primary-color);  /* Tu azul corporativo */
-        font-weight: bold;
-        text-decoration: none;
-        border: 1px solid var(--primary-color);
-        padding: 5px 10px;
-        border-radius: 5px;
-        transition: 0.3s;
-        display: inline-block;  /* Para que el padding funcione bien */
-    }
 
 /* // ESTILO BOTÓN VOLVER (Idéntico al botón "Ver CV" del Portafolio) */
 .btn-volver-top {
@@ -173,11 +163,16 @@ h2 {
     font-weight: 500;       /* Grosor de letra */
     font-family: 'Inter', sans-serif;
     
-    /* // 3. Sombra: Necesaria para que se note que está flotando sobre el fondo oscuro */
+    /* // 3. Sombra */
     box-shadow: 0 4px 10px rgba(0,0,0,0.3);
     
     /* // 4. Animación suave */
     transition: 0.3s ease;
+    
+    /* // Importante para que se centre el texto si usas flex */
+    display: inline-flex; 
+    align-items: center;
+    gap: 8px;
 }
 
 /* // EFECTO HOVER (Al pasar el ratón) */
@@ -195,5 +190,4 @@ h2 {
         padding: 0.5rem 1rem;
         font-size: 0.9rem;
     }
-}
 }
