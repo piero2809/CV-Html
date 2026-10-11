@@ -4,8 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV | Piero Funes</title>
+    <title>Piero Funes · Desarrollador Web Junior | CV</title>
+    <meta name="description"
+        content="CV de Piero Funes Larios, desarrollador web junior en Valencia. Python, Flask, JavaScript, React, TypeScript y Node.js. Estudiante de DAW en CEAC.">
 
+    <!-- Vista previa al compartir (LinkedIn, WhatsApp...) -->
+    <meta property="og:type" content="profile">
+    <meta property="og:title" content="Piero Funes · Desarrollador Web Junior">
+    <meta property="og:description"
+        content="Python, Flask, React, TypeScript y Node.js. Estudiante de DAW con base en Psicología.">
+    <meta property="og:image" content="https://piero2809.github.io/CV-Html/img/yo.webp">
+    <meta property="og:url" content="https://piero2809.github.io/CV-Html/">
+
+    <link rel="icon"
+        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%235cb79a'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' text-anchor='middle' fill='%23000'%3EPF%3C/text%3E%3C/svg%3E">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
@@ -13,112 +28,179 @@
 </head>
 
 <body>
-    <!-- Fondo Parallax -->
-    <div class="bg-parallax">
+    <!-- Fondo animado (se oculta al imprimir y con movimiento reducido) -->
+    <div class="bg-parallax" aria-hidden="true">
         <div class="shape shape-1"></div>
         <div class="shape shape-2"></div>
         <div class="shape shape-3"></div>
     </div>
 
-    <a id="btn-volver" href="https://piero2809.github.io/Portafolio/" class="btn-volver-top" style="display: none;">
-        ⬅ Volver al Portafolio
-    </a>
+    <div class="top-actions no-print">
+        <a id="btn-volver" href="https://piero2809.github.io/Portafolio/" class="btn-top" hidden>
+            <span aria-hidden="true">←</span> Volver al portafolio
+        </a>
+        <button type="button" class="btn-top btn-pdf" onclick="window.print()">
+            <span aria-hidden="true">↓</span> Descargar PDF
+        </button>
+    </div>
+
     <div class="cv-container">
 
         <aside class="sidebar" data-aos="fade-right">
-            <img src="img/yo.jpeg" alt="Piero Funes" class="profile-img">
+            <img src="img/yo.webp" alt="Foto de Piero Funes" class="profile-img" width="150" height="150">
 
-            <section class="contact-info">
+            <section class="side-block">
                 <h3>Contacto</h3>
-                <ul>
-                    <li>📞 +34 652 210 540</li>
-                    <li>✉️ pierofl2005@gmail.com</li>
-                    <li>📍 Burjassot, Valencia</li>
-                    <li><a href="https://www.linkedin.com/in/piero-funes-larios-44360a166" target="_blank"
-                            class="linkedin-link">LinkedIn</a></li>
-
+                <ul class="contact-list">
+                    <li><span class="label">Tel.</span> <a href="tel:+34652210540">+34 652 210 540</a></li>
+                    <li><span class="label">Email</span> <a href="mailto:pierofl2005@gmail.com">pierofl2005@gmail.com</a></li>
+                    <li><span class="label">Ubicación</span> Burjassot, Valencia</li>
+                    <li><span class="label">LinkedIn</span>
+                        <a href="https://www.linkedin.com/in/piero-funes-larios-44360a166/" target="_blank" rel="noopener">in/piero-funes-larios</a>
+                    </li>
+                    <li><span class="label">GitHub</span>
+                        <a href="https://github.com/piero2809" target="_blank" rel="noopener">github.com/piero2809</a>
+                    </li>
+                    <li><span class="label">Portafolio</span>
+                        <a href="https://piero2809.github.io/Portafolio/" target="_blank" rel="noopener">piero2809.github.io/Portafolio</a>
+                    </li>
                 </ul>
             </section>
 
-            <section class="skills">
-                <h3>Competencias</h3>
-                <ul>
-                    <li>Microsoft Office</li>
-                    <li>Mantenimiento PC</li>
-                    <li>Comunicación asertiva</li>
-                    <li>Trabajo en equipo</li>
-                </ul>
-            </section>
-
-            <section class="languages">
+            <section class="side-block">
                 <h3>Idiomas</h3>
-                <ul>
-                    <li>Español - Nativo</li>
-                    <li>Inglés - Intermedio</li>
+                <ul class="plain-list">
+                    <li><strong>Español</strong> — Nativo</li>
+                    <li><strong>Inglés</strong> — Intermedio. Lectura fluida de documentación técnica; mejorando activamente la conversación.</li>
+                </ul>
+            </section>
+
+            <section class="side-block">
+                <h3>Soft skills</h3>
+                <ul class="plain-list">
+                    <li>Resolución de problemas</li>
+                    <li>Proactividad</li>
+                    <li>Trabajo en entornos dinámicos</li>
+                    <li>Empatía con el usuario</li>
                 </ul>
             </section>
         </aside>
 
         <main class="main-content">
-            <header data-aos="fade-down">
+            <header class="cv-header" data-aos="fade-down">
                 <h1>Piero Funes Larios</h1>
-                <h2>Estudiante de DAW en CEAC</h2>
+                <h2>Desarrollador Web Junior</h2>
             </header>
 
-            <section class="experience">
-                <h3>Experiencia Profesional</h3>
+            <section class="block">
+                <h3>Perfil profesional</h3>
+                <p class="summary">
+                    Estudiante de Desarrollo de Aplicaciones Web, enfocado en la creación ágil de herramientas y MVPs
+                    con Python y Flask, con experiencia en prácticas en React, TypeScript y Node.js. Mi base en
+                    Psicología y mi experiencia en soporte y atención al cliente me permiten entender los flujos de
+                    trabajo de los usuarios, detectar fricciones y convertir necesidades reales en soluciones
+                    prácticas.
+                </p>
+            </section>
 
-                <article class="exp-item" data-aos="fade-up">
-                    <img src="img/ServiciosIndustrialesKIP.png" class="company-logo">
+            <section class="block">
+                <h3>Stack técnico</h3>
+                <dl class="stack">
+                    <div>
+                        <dt>Frontend</dt>
+                        <dd><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>TypeScript</span><span>React</span><span>Tailwind CSS</span></dd>
+                    </div>
+                    <div>
+                        <dt>Backend</dt>
+                        <dd><span>Python</span><span>Flask</span><span>Node.js</span><span>API REST</span></dd>
+                    </div>
+                    <div>
+                        <dt>Bases de datos</dt>
+                        <dd><span>MySQL</span></dd>
+                    </div>
+                    <div>
+                        <dt>Herramientas</dt>
+                        <dd><span>Git</span><span>GitHub</span><span>Railway</span></dd>
+                    </div>
+                </dl>
+            </section>
+
+            <section class="block">
+                <h3>Experiencia profesional</h3>
+
+                <article class="item" data-aos="fade-up">
+                    <div class="company-logo logo-initials" aria-hidden="true">CE</div>
+                    <div class="text">
+                        <h4>Desarrollador Web (prácticas)</h4>
+                        <h5>Corner Estudios · hasta 06/2026</h5>
+                        <ul>
+                            <li>Desarrollo de interfaces web y componentes interactivos con React, TypeScript y
+                                Tailwind CSS, priorizando vistas funcionales y diseño responsivo.</li>
+                            <li>Colaboración en la construcción y mantenimiento de servicios backend con Node.js,
+                                integrando la lógica de servidor con el frontend.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="item" data-aos="fade-up">
+                    <img src="img/kip.webp" class="company-logo" alt="Logo de Servicios Industriales KIP" width="55" height="55" loading="lazy">
                     <div class="text">
                         <h4>Soporte técnico y atención al cliente</h4>
-                        <h5>KIP EIRL | 01/2023 - 04/2023</h5>
-                        <p>Implementación de equipos de realidad virtual y soporte técnico básico.</p>
+                        <h5>Servicios Industriales KIP E.I.R.L. · 01/2023 – 04/2023</h5>
+                        <ul>
+                            <li>Asesoría técnica y resolución de incidencias tecnológicas para clientes.</li>
+                            <li>Implementación de hardware de realidad virtual (VR), adaptándome rápidamente a
+                                nuevas tecnologías.</li>
+                        </ul>
                     </div>
                 </article>
 
-                <article class="exp-item" data-aos="fade-up">
-                    <img src="img/Starbucks.png" class="company-logo">
-                    <div class="text">
-                        <h4>Barista</h4>
-                        <h5>Starbucks | 08/2024 - 03/2025</h5>
-                        <p>Atención personalizada en entornos dinámicos y gestión de caja.</p>
-                    </div>
-                </article>
+                <p class="other-exp">
+                    <strong>Otra experiencia:</strong> atención al cliente en hostelería y comercio (Starbucks,
+                    Liaopastel, Bombon Boss), 08/2024 – actualidad.
+                </p>
+            </section>
 
-                <article class="exp-item" data-aos="fade-up">
-                    <img src="img/Liaopastel.jpeg" class="company-logo">
-                    <div class="text">
-                        <h4>Dependiente</h4>
-                        <h5>Liaopastel | 09/2025 - 10/2025</h5>
-                        <p>Venta directa y atención al público.</p>
+            <section class="block">
+                <h3>Proyectos destacados</h3>
+
+                <article class="project" data-aos="fade-up">
+                    <div class="project-head">
+                        <h4>Resilio</h4>
+                        <span class="tag">Proyecto personal · Python · Flask · MySQL</span>
                     </div>
-                </article>
-                <article class="exp-item" data-aos="fade-up">
-                    <img src="img/Bombon Boss.png" class="company-logo">
-                    <div class="text">
-                        <h4>Dependiente</h4>
-                        <h5>Bombon Boss | 11/2025 - Actualidad</h5>
-                        <p>Venta directa, atencion al publico, manejo de caja y preparacion de productos.</p>
-                    </div>
+                    <p>
+                        Plataforma web para detectar el síndrome de burnout mediante la digitalización del test
+                        BAT-12, con métricas, gráficos de resultados y consejos generados con IA.
+                    </p>
+                    <ul>
+                        <li>Modelo multitenant con roles diferenciados (RR. HH., empleado, administrador) y un panel
+                            distinto para cada rol.</li>
+                        <li>Backend en Flask con rutas organizadas en una arquitectura modular y base de datos MySQL.</li>
+                        <li>Desplegada en producción en Railway.</li>
+                    </ul>
+                    <p class="links">
+                        <a href="https://resilio-production.up.railway.app/" target="_blank" rel="noopener">Ver demo</a>
+                        <a href="https://github.com/piero2809/Resilio" target="_blank" rel="noopener">Código en GitHub</a>
+                    </p>
                 </article>
             </section>
 
-            <section class="education">
+            <section class="block">
                 <h3>Formación</h3>
-                <article class="edu-item" data-aos="fade-up">
-                    <img src="img/ceac.png" class="company-logo">
+                <article class="item" data-aos="fade-up">
+                    <img src="img/ceac.webp" class="company-logo" alt="Logo de CEAC" width="55" height="55" loading="lazy">
                     <div class="text">
-                        <h4>Desarrollo de Aplicaciones Web</h4>
-                        <h5>CEAC FP | 09/2025 - Actualidad</h5>
+                        <h4>CFGS Desarrollo de Aplicaciones Web (DAW)</h4>
+                        <h5>CEAC FP · 09/2025 – 06/2027 (previsto)</h5>
                     </div>
                 </article>
 
-                <article class="edu-item" data-aos="fade-up">
-                    <img src="img/Ulima.png" class="company-logo">
+                <article class="item" data-aos="fade-up">
+                    <img src="img/ulima.webp" class="company-logo" alt="Logo de la Universidad de Lima" width="55" height="55" loading="lazy">
                     <div class="text">
-                        <h4>Carrera de Psicología</h4>
-                        <h5>Universidad de Lima | 2023 - 2024</h5>
+                        <h4>Psicología</h4>
+                        <h5>Universidad de Lima · 2023 – 2024</h5>
                     </div>
                 </article>
             </section>
@@ -127,23 +209,19 @@
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true
-        });
-    </script>
-    <script>
-        // 1. Leemos la URL actual
+        // Animaciones de entrada (desactivadas si el usuario prefiere movimiento reducido)
+        if (window.AOS) {
+            AOS.init({
+                duration: 800,
+                once: true,
+                disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            });
+        }
+
+        // Muestra "Volver al portafolio" solo si se llega desde el portafolio
         const params = new URLSearchParams(window.location.search);
-
-        // 2. Comprobamos si trae la "etiqueta" de origen
         if (params.get('origen') === 'portafolio') {
-
-            // 3. Buscamos el botón por su nuevo ID "btn-volver"
-            const boton = document.getElementById('btn-volver');
-
-            // 4. Lo mostramos. Usamos 'inline-flex' para que quede centrado y bonito.
-            boton.style.display = 'inline-flex';
+            document.getElementById('btn-volver').hidden = false;
         }
     </script>
 </body>
