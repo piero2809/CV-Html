@@ -53,47 +53,75 @@ a:hover {
     background-color: var(--dark-bg);
 }
 
+/* Luces difuminadas: tamaños y posiciones relativos a la pantalla
+   para que cubran todo el fondo en cualquier dispositivo */
 .shape {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.45;
-    animation: float 20s infinite ease-in-out alternate;
+    filter: blur(clamp(50px, 9vmax, 120px));
+    opacity: 0.4;
+    will-change: transform;
+    animation: float 24s infinite ease-in-out alternate;
 }
 
+/* Arriba a la izquierda */
 .shape-1 {
-    width: 400px;
-    height: 400px;
+    width: clamp(260px, 45vmax, 700px);
+    aspect-ratio: 1;
     background: var(--primary-color);
-    top: -10%;
-    left: -10%;
-    animation-duration: 25s;
+    top: -15%;
+    left: -15%;
+    animation-duration: 26s;
 }
 
+/* Abajo a la derecha */
 .shape-2 {
-    width: 300px;
-    height: 300px;
+    width: clamp(220px, 40vmax, 620px);
+    aspect-ratio: 1;
     background: var(--accent);
-    bottom: -10%;
-    right: -10%;
+    bottom: -15%;
+    right: -15%;
+    opacity: 0.3;
     animation-duration: 30s;
     animation-direction: alternate-reverse;
 }
 
+/* Lateral derecho, zona media-alta */
 .shape-3 {
-    width: 250px;
-    height: 250px;
-    background: #1e3a30;
-    top: 40%;
-    left: 60%;
-    animation-duration: 35s;
+    width: clamp(200px, 32vmax, 520px);
+    aspect-ratio: 1;
+    background: #2f7d64;
+    top: 25%;
+    right: -12%;
+    animation-duration: 34s;
 }
 
+/* Abajo a la izquierda */
+.shape-4 {
+    width: clamp(180px, 30vmax, 480px);
+    aspect-ratio: 1;
+    background: #1e3a30;
+    bottom: -10%;
+    left: 5%;
+    opacity: 0.55;
+    animation-duration: 38s;
+    animation-direction: alternate-reverse;
+}
+
+/* El desplazamiento es relativo al tamaño de cada luz */
 @keyframes float {
     0% { transform: translate(0, 0) scale(1); }
-    33% { transform: translate(30px, -50px) scale(1.1); }
-    66% { transform: translate(-20px, 20px) scale(0.9); }
+    33% { transform: translate(8%, -10%) scale(1.08); }
+    66% { transform: translate(-6%, 6%) scale(0.94); }
     100% { transform: translate(0, 0) scale(1); }
+}
+
+/* En móvil (pantalla vertical) las luces se reparten por la altura */
+@media (max-width: 600px) {
+    .shape-1 { top: -8%; left: -30%; }
+    .shape-2 { bottom: -8%; right: -30%; }
+    .shape-3 { top: 40%; right: -35%; }
+    .shape-4 { bottom: 20%; left: -35%; }
 }
 
 /* ========================================= */
@@ -413,6 +441,7 @@ a:hover {
     }
 
     .top-actions {
+        position: absolute; /* en móvil no tapa el contenido al hacer scroll */
         top: 14px;
         left: 12px;
         right: 12px;
