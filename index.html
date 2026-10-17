@@ -13,8 +13,8 @@
     <meta property="og:title" content="Piero Funes · Desarrollador Web Junior">
     <meta property="og:description"
         content="Python, Flask, React, TypeScript y Node.js. Estudiante de DAW con base en Psicología.">
-    <meta property="og:image" content="https://piero2809.github.io/CV-Html/img/yo.webp">
-    <meta property="og:url" content="https://piero2809.github.io/CV-Html/">
+    <meta property="og:image" content="https://cv.pierooof.dev/img/yo.webp">
+    <meta property="og:url" content="https://cv.pierooof.dev/">
 
     <link rel="icon"
         href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%235cb79a'/%3E%3Ctext x='32' y='42' font-family='monospace' font-size='28' font-weight='700' text-anchor='middle' fill='%23000'%3EPF%3C/text%3E%3C/svg%3E">
@@ -23,23 +23,34 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Aplica el tema guardado (o el del sistema) antes de pintar
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 </head>
 
 <body>
-    <!-- Fondo animado (se oculta al imprimir y con movimiento reducido) -->
-    <div class="bg-parallax" aria-hidden="true">
-        <div class="shape shape-1"></div>
-        <div class="shape shape-2"></div>
-        <div class="shape shape-3"></div>
-        <div class="shape shape-4"></div>
-    </div>
-
     <div class="top-actions no-print">
-        <a id="btn-volver" href="https://piero2809.github.io/Portafolio/" class="btn-top" hidden>
+        <a id="btn-volver" href="https://portafolio.pierooof.dev/" class="btn-top" hidden>
             <span aria-hidden="true">←</span> Volver al portafolio
         </a>
+        <button type="button" class="btn-top btn-theme" id="btn-theme">
+            <svg class="theme-icon icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4"></circle>
+                <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"></path>
+            </svg>
+            <svg class="theme-icon icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+            </svg>
+        </button>
         <button type="button" class="btn-top btn-pdf" onclick="window.print()">
             <span aria-hidden="true">↓</span> Descargar PDF
         </button>
@@ -47,7 +58,7 @@
 
     <div class="cv-container">
 
-        <aside class="sidebar" data-aos="fade-right">
+        <aside class="sidebar">
             <img src="img/yo.webp" alt="Foto de Piero Funes" class="profile-img" width="150" height="150">
 
             <section class="side-block">
@@ -60,10 +71,10 @@
                         <a href="https://www.linkedin.com/in/piero-funes-larios-44360a166/" target="_blank" rel="noopener">in/piero-funes-larios</a>
                     </li>
                     <li><span class="label">GitHub</span>
-                        <a href="https://github.com/piero2809" target="_blank" rel="noopener">github.com/piero2809</a>
+                        <a href="https://github.com/pierooof" target="_blank" rel="noopener">github.com/pierooof</a>
                     </li>
                     <li><span class="label">Portafolio</span>
-                        <a href="https://piero2809.github.io/Portafolio/" target="_blank" rel="noopener">piero2809.github.io/Portafolio</a>
+                        <a href="https://portafolio.pierooof.dev/" target="_blank" rel="noopener">portafolio.pierooof.dev</a>
                     </li>
                 </ul>
             </section>
@@ -88,7 +99,7 @@
         </aside>
 
         <main class="main-content">
-            <header class="cv-header" data-aos="fade-down">
+            <header class="cv-header">
                 <h1>Piero Funes Larios</h1>
                 <h2>Desarrollador Web Junior</h2>
             </header>
@@ -129,7 +140,7 @@
             <section class="block">
                 <h3>Experiencia profesional</h3>
 
-                <article class="item" data-aos="fade-up">
+                <article class="item">
                     <div class="company-logo logo-initials" aria-hidden="true">CE</div>
                     <div class="text">
                         <h4>Desarrollador Web (prácticas)</h4>
@@ -143,7 +154,7 @@
                     </div>
                 </article>
 
-                <article class="item" data-aos="fade-up">
+                <article class="item">
                     <img src="img/kip.webp" class="company-logo" alt="Logo de Servicios Industriales KIP" width="55" height="55" loading="lazy">
                     <div class="text">
                         <h4>Soporte técnico y atención al cliente</h4>
@@ -165,7 +176,7 @@
             <section class="block">
                 <h3>Proyectos destacados</h3>
 
-                <article class="project" data-aos="fade-up">
+                <article class="project">
                     <div class="project-head">
                         <h4>Resilio</h4>
                         <span class="tag">Proyecto personal · Python · Flask · MySQL</span>
@@ -182,14 +193,14 @@
                     </ul>
                     <p class="links">
                         <a href="https://resilio-production.up.railway.app/" target="_blank" rel="noopener">Ver demo</a>
-                        <a href="https://github.com/piero2809/Resilio" target="_blank" rel="noopener">Código en GitHub</a>
+                        <a href="https://github.com/pierooof/Resilio" target="_blank" rel="noopener">Código en GitHub</a>
                     </p>
                 </article>
             </section>
 
             <section class="block">
                 <h3>Formación</h3>
-                <article class="item" data-aos="fade-up">
+                <article class="item">
                     <img src="img/ceac.webp" class="company-logo" alt="Logo de CEAC" width="55" height="55" loading="lazy">
                     <div class="text">
                         <h4>CFGS Desarrollo de Aplicaciones Web (DAW)</h4>
@@ -197,7 +208,7 @@
                     </div>
                 </article>
 
-                <article class="item" data-aos="fade-up">
+                <article class="item">
                     <img src="img/ulima.webp" class="company-logo" alt="Logo de la Universidad de Lima" width="55" height="55" loading="lazy">
                     <div class="text">
                         <h4>Psicología</h4>
@@ -208,16 +219,22 @@
         </main>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Animaciones de entrada (desactivadas si el usuario prefiere movimiento reducido)
-        if (window.AOS) {
-            AOS.init({
-                duration: 800,
-                once: true,
-                disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-            });
+        // Botón de modo claro / oscuro
+        const root = document.documentElement;
+        const btnTheme = document.getElementById('btn-theme');
+        function updateThemeButton() {
+            const label = root.getAttribute('data-theme') === 'light' ? 'Cambiar a modo oscuro' : 'Cambiar a modo claro';
+            btnTheme.setAttribute('aria-label', label);
+            btnTheme.title = label;
         }
+        btnTheme.addEventListener('click', function () {
+            const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+            updateThemeButton();
+        });
+        updateThemeButton();
 
         // Muestra "Volver al portafolio" solo si se llega desde el portafolio
         const params = new URLSearchParams(window.location.search);
