@@ -23,8 +23,16 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        // Aplica el tema guardado (o el del sistema) antes de pintar
+        (function () {
+            var t = null;
+            try { t = localStorage.getItem('theme'); } catch (e) {}
+            if (!t) t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            document.documentElement.setAttribute('data-theme', t);
+        })();
+    </script>
 </head>
 
 <body>
@@ -32,6 +40,9 @@
         <a id="btn-volver" href="https://portafolio.pierooof.dev/" class="btn-top" hidden>
             <span aria-hidden="true">←</span> Volver al portafolio
         </a>
+        <button type="button" class="btn-top btn-theme" id="btn-theme" aria-label="Cambiar entre modo claro y oscuro">
+            Modo claro
+        </button>
         <button type="button" class="btn-top btn-pdf" onclick="window.print()">
             <span aria-hidden="true">↓</span> Descargar PDF
         </button>
@@ -39,7 +50,7 @@
 
     <div class="cv-container">
 
-        <aside class="sidebar" data-aos="fade-right">
+        <aside class="sidebar">
             <img src="img/yo.webp" alt="Foto de Piero Funes" class="profile-img" width="150" height="150">
 
             <section class="side-block">
@@ -80,7 +91,7 @@
         </aside>
 
         <main class="main-content">
-            <header class="cv-header" data-aos="fade-down">
+            <header class="cv-header">
                 <h1>Piero Funes Larios</h1>
                 <h2>Desarrollador Web Junior</h2>
             </header>
@@ -121,7 +132,7 @@
             <section class="block">
                 <h3>Experiencia profesional</h3>
 
-                <article class="item" data-aos="fade-up">
+                <article class="item">
                     <div class="company-logo logo-initials" aria-hidden="true">CE</div>
                     <div class="text">
                         <h4>Desarrollador Web (prácticas)</h4>
@@ -135,7 +146,7 @@
                     </div>
                 </article>
 
-                <article class="item" data-aos="fade-up">
+                <article class="item">
                     <img src="img/kip.webp" class="company-logo" alt="Logo de Servicios Industriales KIP" width="55" height="55" loading="lazy">
                     <div class="text">
                         <h4>Soporte técnico y atención al cliente</h4>
@@ -157,7 +168,7 @@
             <section class="block">
                 <h3>Proyectos destacados</h3>
 
-                <article class="project" data-aos="fade-up">
+                <article class="project">
                     <div class="project-head">
                         <h4>Resilio</h4>
                         <span class="tag">Proyecto personal · Python · Flask · MySQL</span>
@@ -181,7 +192,7 @@
 
             <section class="block">
                 <h3>Formación</h3>
-                <article class="item" data-aos="fade-up">
+                <article class="item">
                     <img src="img/ceac.webp" class="company-logo" alt="Logo de CEAC" width="55" height="55" loading="lazy">
                     <div class="text">
                         <h4>CFGS Desarrollo de Aplicaciones Web (DAW)</h4>
@@ -189,7 +200,7 @@
                     </div>
                 </article>
 
-                <article class="item" data-aos="fade-up">
+                <article class="item">
                     <img src="img/ulima.webp" class="company-logo" alt="Logo de la Universidad de Lima" width="55" height="55" loading="lazy">
                     <div class="text">
                         <h4>Psicología</h4>
@@ -200,16 +211,20 @@
         </main>
     </div>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        // Animaciones de entrada (desactivadas si el usuario prefiere movimiento reducido)
-        if (window.AOS) {
-            AOS.init({
-                duration: 800,
-                once: true,
-                disable: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-            });
+        // Botón de modo claro / oscuro
+        const root = document.documentElement;
+        const btnTheme = document.getElementById('btn-theme');
+        function updateThemeButton() {
+            btnTheme.textContent = root.getAttribute('data-theme') === 'light' ? 'Modo oscuro' : 'Modo claro';
         }
+        btnTheme.addEventListener('click', function () {
+            const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+            root.setAttribute('data-theme', next);
+            try { localStorage.setItem('theme', next); } catch (e) {}
+            updateThemeButton();
+        });
+        updateThemeButton();
 
         // Muestra "Volver al portafolio" solo si se llega desde el portafolio
         const params = new URLSearchParams(window.location.search);

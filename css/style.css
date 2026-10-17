@@ -1,15 +1,35 @@
 /* Colores de la marca (compartidos con el portafolio) */
 :root {
     --primary-color: #5cb79a;
-    --accent: #7aecc3;
+    --link: #7aecc3;
     --dark-bg: #000000;
     --card-bg: #0a0a0a;
+    --sidebar-bg: #050505;
     --text-light: #e5e5e5;
+    --text-strong: #ffffff;
     --text-muted: #a3a3a3;
     --dark-border: #222222;
+    --btn-text: #000000;
+    --btn-hover: #ffffff;
+    --tag-bg: transparent;
 
     --font-mono: 'JetBrains Mono', monospace;
     --font-sans: 'Inter', sans-serif;
+}
+
+/* Modo claro */
+:root[data-theme="light"] {
+    --primary-color: #2f7d64;
+    --link: #1f6b53;
+    --dark-bg: #f4f6f5;
+    --card-bg: #ffffff;
+    --sidebar-bg: #f3f7f5;
+    --text-light: #1f2523;
+    --text-strong: #000000;
+    --text-muted: #5b6460;
+    --dark-border: #d9e0dd;
+    --btn-text: #ffffff;
+    --btn-hover: #000000;
 }
 
 * {
@@ -32,13 +52,12 @@ body {
 }
 
 a {
-    color: var(--accent);
+    color: var(--link);
     text-decoration: none;
-    transition: color 0.2s;
 }
 
 a:hover {
-    color: #fff;
+    color: var(--text-strong);
     text-decoration: underline;
 }
 
@@ -63,19 +82,18 @@ a:hover {
     align-items: center;
     gap: 8px;
     background-color: var(--primary-color);
-    color: #000;
+    color: var(--btn-text);
     border: none;
     padding: 0.6rem 1.2rem;
     border-radius: 4px;
     font: 700 0.9rem var(--font-mono);
     cursor: pointer;
-    transition: background-color 0.2s;
 }
 
 .btn-top:hover,
 .btn-top:focus-visible {
-    background-color: #fff;
-    color: #000;
+    background-color: var(--btn-hover);
+    color: var(--btn-text);
     text-decoration: none;
 }
 
@@ -84,8 +102,12 @@ a:hover {
 }
 
 /* El botón PDF siempre a la derecha */
-.btn-pdf {
+.top-actions .btn-theme {
     margin-left: auto;
+}
+
+.top-actions .btn-pdf {
+    margin-left: 0;
 }
 
 /* ========================================= */
@@ -104,7 +126,7 @@ a:hover {
 /* Sidebar */
 .sidebar {
     flex: 0 0 320px;
-    background: #050505;
+    background: var(--sidebar-bg);
     padding: 40px 32px;
     border-right: 1px solid var(--dark-border);
 }
@@ -260,14 +282,14 @@ a:hover {
     align-items: center;
     justify-content: center;
     background: var(--primary-color);
-    color: #000;
+    color: var(--btn-text);
     font: 700 1.1rem var(--font-mono);
 }
 
 .text h4,
 .project h4 {
     margin: 0;
-    color: #fff;
+    color: var(--text-strong);
     font-size: 1.05rem;
 }
 
@@ -390,6 +412,19 @@ a:hover {
         margin: 10mm 10mm;
     }
 
+    /* El PDF siempre sale en claro, aunque la pantalla esté en oscuro */
+    :root[data-theme] {
+        --primary-color: #2f7d64;
+        --link: #111;
+        --dark-bg: #fff;
+        --card-bg: #fff;
+        --sidebar-bg: #f3f7f5;
+        --text-light: #111;
+        --text-strong: #111;
+        --text-muted: #555;
+        --dark-border: #d9e0dd;
+    }
+
     body {
         background: #fff;
         color: #111;
@@ -401,12 +436,6 @@ a:hover {
 
     .no-print {
         display: none !important;
-    }
-
-    /* Asegura que lo que anima AOS se imprima visible */
-    [data-aos] {
-        opacity: 1 !important;
-        transform: none !important;
     }
 
     a {
